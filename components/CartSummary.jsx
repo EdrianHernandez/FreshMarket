@@ -1,13 +1,7 @@
 import React, { useMemo } from 'react';
-import { CartItem } from '../types';
+// The import for CartItem is removed because it is a type and not used at runtime in JavaScript.
 
-interface CartSummaryProps {
-  items: CartItem[];
-  onRemove: (id: string, weightOption: string) => void;
-  onUpdateQuantity: (id: string, weightOption: string, delta: number) => void;
-}
-
-export const CartSummary: React.FC<CartSummaryProps> = ({ items, onRemove, onUpdateQuantity }) => {
+export const CartSummary = ({ items, onRemove, onUpdateQuantity }) => {
   const subtotal = useMemo(() => {
     return items.reduce((acc, item) => acc + (item.product.price * item.quantity), 0);
   }, [items]);
