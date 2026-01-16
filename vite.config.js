@@ -16,7 +16,9 @@ export default defineConfig(({ mode }) => {
       },
       resolve: {
         alias: {
-          '@': path.resolve(__dirname, '.'),
+          // In ESM, __dirname is not available by default. 
+          // We use process.cwd() or similar logic to resolve the path in JS.
+          '@': path.resolve(process.cwd(), '.'),
         }
       }
     };
