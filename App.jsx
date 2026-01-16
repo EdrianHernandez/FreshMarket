@@ -3,12 +3,13 @@ import { GrocerySidebar } from './components/GrocerySidebar';
 import { ProductGrid } from './components/ProductGrid';
 import { WeeklyDeals } from './components/WeeklyDeals';
 import { CartSummary } from './components/CartSummary';
-import { Product, CartItem, CategoryId } from './types';
+// Types and interfaces are removed as they are not valid JavaScript syntax
 import { PRODUCTS } from './constants';
 
-const App: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState<CategoryId>('all');
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+const App = () => {
+  // Generic type parameters (e.g., <CategoryId>, <CartItem[]>) are removed
+  const [activeCategory, setActiveCategory] = useState('all');
+  const [cartItems, setCartItems] = useState([]);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Filter products based on active category
@@ -18,7 +19,8 @@ const App: React.FC = () => {
   }, [activeCategory]);
 
   // Cart Handlers
-  const addToCart = (product: Product, quantity: number, weightOption: string) => {
+  // Type annotations for parameters (product, quantity, weightOption) are removed
+  const addToCart = (product, quantity, weightOption) => {
     setCartItems((prev) => {
       const existing = prev.find(
         (item) => item.product.id === product.id && item.weightOption === weightOption
@@ -34,11 +36,11 @@ const App: React.FC = () => {
     });
   };
 
-  const removeFromCart = (productId: string, weightOption: string) => {
+  const removeFromCart = (productId, weightOption) => {
     setCartItems((prev) => prev.filter(item => !(item.product.id === productId && item.weightOption === weightOption)));
   };
 
-  const updateQuantity = (productId: string, weightOption: string, delta: number) => {
+  const updateQuantity = (productId, weightOption, delta) => {
     setCartItems(prev => prev.map(item => {
       if (item.product.id === productId && item.weightOption === weightOption) {
         const newQty = Math.max(1, item.quantity + delta);
