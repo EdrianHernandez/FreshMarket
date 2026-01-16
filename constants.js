@@ -1,6 +1,6 @@
-import { Category, Product } from './types';
+// The import for Category and Product types is removed as they are not needed in JavaScript.
 
-export const CATEGORIES: Category[] = [
+export const CATEGORIES = [
   { id: 'all', name: 'All Groceries', icon: '🏪' },
   { id: 'fruits', name: 'Fresh Fruits', icon: '🍎' },
   { id: 'vegetables', name: 'Vegetables', icon: '🥦' },
@@ -8,7 +8,7 @@ export const CATEGORIES: Category[] = [
   { id: 'bakery', name: 'Bakery', icon: '🥖' },
 ];
 
-export const PRODUCTS: Product[] = [
+export const PRODUCTS = [
   // Fruits
   {
     id: 'f1',
