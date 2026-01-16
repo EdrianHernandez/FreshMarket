@@ -1,12 +1,7 @@
 import React, { useState } from 'react';
-import { Product } from '../types';
+// Import for Product type is removed as it is not needed in JavaScript
 
-interface ProductGridProps {
-  products: Product[];
-  onAddToCart: (product: Product, quantity: number, weightOption: string) => void;
-}
-
-export const ProductGrid: React.FC<ProductGridProps> = ({ products, onAddToCart }) => {
+export const ProductGrid = ({ products, onAddToCart }) => {
   return (
     <div className="product-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6">
       {products.map((product) => (
@@ -16,12 +11,8 @@ export const ProductGrid: React.FC<ProductGridProps> = ({ products, onAddToCart 
   );
 };
 
-interface ProductCardProps {
-  product: Product;
-  onAddToCart: (product: Product, quantity: number, weightOption: string) => void;
-}
-
-const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToCart }) => {
+// Interface ProductCardProps is removed
+const ProductCard = ({ product, onAddToCart }) => {
   const [quantity, setQuantity] = useState(1);
   const [selectedWeight, setSelectedWeight] = useState(product.weightOptions[0]);
   const [isHovered, setIsHovered] = useState(false);
