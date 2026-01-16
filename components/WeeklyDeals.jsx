@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-export const WeeklyDeals: React.FC = () => {
+export const WeeklyDeals = () => {
   const [timeLeft, setTimeLeft] = useState({ hours: 14, minutes: 45, seconds: 12 });
 
   useEffect(() => {
@@ -64,7 +64,8 @@ export const WeeklyDeals: React.FC = () => {
   );
 };
 
-const TimeUnit: React.FC<{ value: number; label: string }> = ({ value, label }) => (
+// Removed the TypeScript generic and prop type definitions
+const TimeUnit = ({ value, label }) => (
   <div className="flex flex-col items-center">
     <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 flex items-center justify-center text-2xl font-bold shadow-inner">
       {value.toString().padStart(2, '0')}
