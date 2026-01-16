@@ -1,13 +1,8 @@
 import React, { useState } from 'react';
 import { CATEGORIES } from '../constants';
-import { CategoryId } from '../types';
+// The import for CategoryId is removed because it is a type and not used at runtime in JavaScript.
 
-interface GrocerySidebarProps {
-  activeCategory: CategoryId;
-  onSelectCategory: (id: CategoryId) => void;
-}
-
-export const GrocerySidebar: React.FC<GrocerySidebarProps> = ({ activeCategory, onSelectCategory }) => {
+export const GrocerySidebar = ({ activeCategory, onSelectCategory }) => {
   const [isExpanded, setIsExpanded] = useState(true);
 
   return (
